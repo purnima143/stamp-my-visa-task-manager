@@ -24,6 +24,7 @@ function TaskPaginationControl({
           options={[5, 10, 15]}
           selectedValue={perPage}
           onSelect={togglePerPage}
+          position="top"
         />
       </div>
 

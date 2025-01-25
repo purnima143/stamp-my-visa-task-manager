@@ -9,7 +9,7 @@ function TaskBoard() {
   const [page, setPage] = useState(1);
   const [status, setStatus] = useState("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [perPage, setPerPage] = useState(5);
+  const [perPage, setPerPage] = useState(10);
   const [priority, setPriority] = useState("All");
   const taskDatas = state.tasks.filter((task) => {
     if (status === "Completed" && !task.completed) return false;

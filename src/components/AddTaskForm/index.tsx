@@ -8,10 +8,10 @@ import Button from "../../shared/components/Button";
 function AddTaskForm() {
   const taskNameValueRef = useRef<HTMLInputElement>(null);
   const { dispatch } = useTaskProvider();
-  const { id } = useParams()
+  const { id } = useParams();
   const [priority, setPriority] = useState<Priority>(PRIORITY_LEVELS[0]);
   const [isFormVisible, setIsFormVisible] = useState<boolean>(true);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const toggleFormVisibility = () => {
     setIsFormVisible((prevState) => !prevState);
   };
@@ -25,22 +25,23 @@ function AddTaskForm() {
       }
       setPriority(PRIORITY_LEVELS[0]);
       setIsFormVisible(false);
-      if (id) navigate("/")
+      if (id) navigate("/");
     } else {
       console.error("Task name cannot be empty");
     }
   };
 
   function handleSetPriority(value: string) {
-    setPriority(value as Priority)
+    setPriority(value as Priority);
   }
   return (
-    <div className="w-full md:w-1/3 bg-white rounded-lg p-4 border border-gray-200 h-fit">
+    <div className="w-full md:w-1/3 bg-white rounded-lg md:p-4 md:border md:border-gray-200 h-fit md:h-auto">
       <Button
         variant="primary"
         onClick={toggleFormVisibility}
-        className={`w-full bg-blue-700 text-white py-2 cursor-pointer rounded hover:bg-blue-800 mb-4 md:hidden ${isFormVisible ? "hidden" : ""
-          }`}
+        className={`w-full bg-blue-700 text-white py-2 cursor-pointer rounded hover:bg-blue-800 mb-4 md:w-auto md:mb-0 ${
+          isFormVisible ? "hidden" : ""
+        }`}
       >
         + Add Task
       </Button>
@@ -71,11 +72,7 @@ function AddTaskForm() {
           />
         </div>
         <div className="flex items-center justify-between">
-          <Button
-            variant="primary"
-            onClick={handleSubmit}
-            className="w-full"
-          >
+          <Button variant="primary" onClick={handleSubmit} className="w-full">
             Submit Task
           </Button>
           <Button
