@@ -1,50 +1,28 @@
-# React + TypeScript + Vite
+# Task Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple task manager app built using **Vite** and **React**. The app allows you to perform CRUD operations on tasks, filter tasks by status and priority, mark tasks as completed, navigate to task details, and manage pagination. It also stores data in **localStorage** using an initial API call.
 
-Currently, two official plugins are available:
+## URL
+https://stamp-my-visa-task-manager.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
 
-## Expanding the ESLint configuration
+- Clone the repository
+- Install the required dependencies: ```npm install```
+- Run the development serve: ```npm run dev```
+- Open server ```http://localhost:5173```
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
+- **CRUD Operations:** Add, edit, delete, and update tasks.
+- **Filter Tasks:** Filter tasks based on status (completed or not) and priority.
+- **Complete Task:** Option to mark tasks as completed or incomplete.
+- **Task Details:** Clicking on a task navigates to the task's details page.
+- **Pagination:** Paginate the task list and choose the number of tasks per page.
+- **LocalStorage Integration:** The app stores task data in local storage using an initial API call.
+- **Styling:** Tailwind CSS for responsive and clean UI design.
 
-- Configure the top-level `parserOptions` property like this:
+## State Managament
+I chose **Context API** and **useReducer** for simplicity and minimal setup, making it ideal for the current task manager app. Redux, while powerful, adds unnecessary complexity at this stage, but it can be integrated in the future as the app scales and requires more advanced features.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Tech choice
+TypeScript, ReactJS, Tailwind, Context API + useReducer
